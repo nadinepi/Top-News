@@ -3,6 +3,7 @@ import requests
 
 from tkinter import *
 import webbrowser
+from PIL import ImageTk, Image
 
 
 def callback(url):
@@ -11,10 +12,10 @@ def callback(url):
 
 root = tkinter.Tk()
 
-root.title('Top Headlines')
+root.title('Top News')
 root.geometry('1200x900')
 
-l1 = tkinter.Label(root, text='Enter a news source:', font='courier 15', padx=20)
+l1 = tkinter.Label(root, text='Enter a news source:', font='helvetica 15', justify=tkinter.RIGHT)
 l1.grid(row=1, column=0)
 
 source = tkinter.StringVar()
@@ -102,31 +103,40 @@ options = tkinter.Label(root,
                              "- vice-news\n"
                              "- wired\n"
                              "- time. \n\nPlease type the news sources exactly as shown!",
-                        wraplength=250, justify=tkinter.LEFT, padx=10, font='courier 14')
+                        wraplength=200, justify=tkinter.LEFT, font='helvetica 14', padx=30)
 options.grid(row=3, column=0)
 
-label = tkinter.Label(root, text="TOP HEADLINES", font='courier 30 bold', pady=10, fg='dodgerblue', padx=20)
-label.grid(row=0, column=0)
+label = tkinter.Label(root, text="TOP NEWS", font='helvetica 30 bold', pady=10, fg='dodgerblue')
+label.grid(row=0, column=0, padx=(70,0))
 
-l2 = tkinter.Label(root, textvariable=infodisplay, wraplength=550, pady=30, padx=30, font='courier 14', borderwidth=2,
+l2 = tkinter.Label(root, textvariable=infodisplay, wraplength=550, pady=30, padx=30, font='helvetica 14', borderwidth=2,
                    relief="solid", cursor='hand')
 l2.grid(row=3, column=3)
 l2.bind("<Button-1>", lambda e: callback(link))
 
-l3 = tkinter.Label(root, textvariable=infodisplay2, wraplength=550, font='courier 14', cursor='hand')
+l3 = tkinter.Label(root, textvariable=infodisplay2, wraplength=550, font='helvetica 14', cursor='hand')
 l3.grid(row=4, column=3)
 l3.bind("<Button-1>", lambda e: callback(link2))
 
-l4 = tkinter.Label(root, textvariable=infodisplay3, wraplength=550, font='courier 14', cursor='hand')
+l4 = tkinter.Label(root, textvariable=infodisplay3, wraplength=550, font='helvetica 14', cursor='hand')
 l4.grid(row=5, column=3)
 l4.bind("<Button-1>", lambda e: callback(link3))
 
-l5 = tkinter.Label(root, textvariable=infodisplay4, wraplength=550, font='courier 14', cursor='hand')
+l5 = tkinter.Label(root, textvariable=infodisplay4, wraplength=550, font='helvetica 14', cursor='hand')
 l5.grid(row=6, column=3)
 l5.bind("<Button-1>", lambda e: callback(link4))
 
-l6 = tkinter.Label(root, textvariable=infodisplay5, wraplength=550, font='courier 14', cursor='hand')
+l6 = tkinter.Label(root, textvariable=infodisplay5, wraplength=550, font='helvetica 14', cursor='hand')
 l6.grid(row=7, column=3)
 l6.bind("<Button-1>", lambda e: callback(link5))
+
+img = ImageTk.PhotoImage(Image.open('top news logo.png').resize((50, 50)))
+
+#The Label widget is a standard Tkinter widget used to display a text or image on the screen.
+panel = tkinter.Label(root, image=img)
+panel.image = img
+#The Pack geometry manager packs widgets in rows or columns.
+panel.grid(row=0, column=0, sticky='w', pady=30, padx=15)
+
 
 root.mainloop()
