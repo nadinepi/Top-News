@@ -1,6 +1,6 @@
 # Top-News
  
-This GUI will display the most recent news from a news source of your choice! You can click each link to access each article.
+This GUI will display the most recent news from a news source of your choice using the News API! You can click each link to access each article.
 
 ![Screen Shot 2021-05-04 at 4 11 50 PM](https://user-images.githubusercontent.com/47422637/117063984-91518000-acf3-11eb-8672-00f318c77e26.png)
 
